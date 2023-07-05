@@ -13,11 +13,11 @@ const TableRow = ({ planet }) => {
 
   return (
     <tr>
-      <td className="cell">
+      <th className="cell" scope="row">
         <a href={url} target="_blank">
           {name}
         </a>
-      </td>
+      </th>
       <td className="cell">{formattedClimate}</td>
       <td className="cell">{residentsCount}</td>
       <td className="cell">{formattedTerrain}</td>

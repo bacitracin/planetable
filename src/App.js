@@ -26,13 +26,15 @@ function App() {
   }, [])
 
   return (
-    <div className="container">
-      <h1>Star Wars Planets</h1>
-      {loading && <div className="status">Loading...</div>}
-      {!loading && data && <Table data={data} />}
-      {!loading && !data && error && <div className="status">{`Error: ${error}`}</div>}
-      {!loading && !data && !error && <div className="status">No results found.</div>}
-    </div>
+    <main className="container">
+      <h1>Star Wars Planet Statistics</h1>
+      <div aria-live="polite">
+        {loading && <div className="status">Loading...</div>}
+        {!loading && data && <Table data={data} />}
+        {!loading && !data && error && <div className="status">{`Error: ${error}`}</div>}
+        {!loading && !data && !error && <div className="status">No results found.</div>}
+      </div>
+    </main>
   );
 }
 
