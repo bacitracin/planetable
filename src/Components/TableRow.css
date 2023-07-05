@@ -1,7 +1,5 @@
-/* TODO: Switch to classes */
-
-td {
+.cell {
   border: 1px solid grey;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px;
 }

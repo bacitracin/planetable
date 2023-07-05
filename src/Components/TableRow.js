@@ -11,16 +11,16 @@ const TableRow = ({ planet }) => {
 
   return (
     <tr>
-      <td>
+      <td className="cell">
         <a href={url} target="_blank">
           {name}
         </a>
       </td>
-      <td>{climate}</td>
-      <td>{residentsCount}</td>
-      <td>{terrain}</td>
-      <td>{formattedPopulation}</td>
-      <td>{waterCoverage}</td>
+      <td className="cell">{climate}</td>
+      <td className="cell">{residentsCount}</td>
+      <td className="cell">{terrain}</td>
+      <td className="cell">{formattedPopulation}</td>
+      <td className="cell">{waterCoverage}</td>
     </tr>
 )}
 

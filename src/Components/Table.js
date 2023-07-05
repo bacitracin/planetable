@@ -5,16 +5,16 @@ import TableRow from './TableRow';
 const Table = ({ data }) => {
   console.log('the data table', data)
   return (
-    <table>
-      <caption>Planet Statistics</caption>
+    <table className="table">
+      <caption className="caption">Planet Statistics</caption>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Climate</th>
-          <th>Number of Residents</th>
-          <th>Terrains</th>
-          <th>Population</th>
-          <th>Surface area covered by water (in km2)</th>
+          <th className="header" scope="col">Name</th>
+          <th className="header" scope="col">Climate</th>
+          <th className="header" scope="col">Number of Residents</th>
+          <th className="header" scope="col">Terrains</th>
+          <th className="header" scope="col">Population</th>
+          <th className="header" scope="col">Surface area covered by water (in km2)</th>
         </tr>
       </thead>
       <tbody>

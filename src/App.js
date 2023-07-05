@@ -4,11 +4,15 @@ import { PLANET_API_URL } from './constants';
 import Table from './Components/Table';
 
 function App() {
-  // TODO: Sort planets alphabetically, error handling
+  // TODO: Sort planets alphabetically
   async function getData() {
-    const response = await fetch(PLANET_API_URL);
-    const jsonData = await response.json();
-    setData(jsonData.results);
+    try {
+      const response = await fetch(PLANET_API_URL);
+      const jsonData = await response.json();
+      setData(jsonData.results);
+    } catch (error) {
+      setError(error);
+    }
     setLoading(false);
   }
 
@@ -18,13 +22,12 @@ function App() {
 
   useEffect(() => {
     getData();
-    console.log('data', data)
   }, [])
 
   return (
     <div className="container">
       <h1>Star Wars Planets</h1>
-      {loading && <div>Loading...</div>}
+      {loading && <div className="loading">Loading...</div>}
       {!loading && data && <Table data={data} />}
       {!loading && !data && <div>No results found.</div>}
     </div>
