@@ -9,7 +9,8 @@ function App() {
     try {
       const response = await fetch(PLANET_API_URL);
       const jsonData = await response.json();
-      setData(jsonData.results);
+      const sortedData = jsonData?.results?.sort((a, b) => a.name.localeCompare(b.name));
+      setData(sortedData);
     } catch (error) {
       setError(error.toString());
     }
