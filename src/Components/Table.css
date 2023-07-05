@@ -1,0 +1,17 @@
+/* TODO: Switch to classes */
+
+caption {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  border: 1px solid grey;
+  font-size: 1.4rem;
+}
