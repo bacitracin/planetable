@@ -11,7 +11,7 @@ function App() {
       const jsonData = await response.json();
       setData(jsonData.results);
     } catch (error) {
-      setError(error);
+      setError(error.toString());
     }
     setLoading(false);
   }
@@ -27,9 +27,10 @@ function App() {
   return (
     <div className="container">
       <h1>Star Wars Planets</h1>
-      {loading && <div className="loading">Loading...</div>}
+      {loading && <div className="status">Loading...</div>}
       {!loading && data && <Table data={data} />}
-      {!loading && !data && <div>No results found.</div>}
+      {!loading && !data && error && <div className="status">{`Error: ${error}`}</div>}
+      {!loading && !data && !error && <div className="status">No results found.</div>}
     </div>
   );
 }
