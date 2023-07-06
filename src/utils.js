@@ -10,11 +10,11 @@ const calcSphereSurfaceArea = (diameter) => {
 }
 
 export const calcPlanetWaterCoverage = ({ diameter, percentage }) => {
-  if (!percentage || percentage === 'unknown') {
-    return '?'
+  if (!percentage || percentage === 'unknown' || !diameter || diameter === 'unknown') {
+    return '?';
   } else {
     const surfaceArea = calcSphereSurfaceArea(diameter);
     const waterCoverage = Math.round(parseInt(percentage) * 0.01 * surfaceArea);
-    return formatNumber(waterCoverage)
+    return formatNumber(waterCoverage);
   }
 }

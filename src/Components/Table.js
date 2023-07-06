@@ -1,26 +1,24 @@
 import './Table.css';
 import TableRow from './TableRow';
+import { PLANET_TABLE_HEADERS } from '../constants';
 
-// TODO: Pull out headers?
 const Table = ({ data }) => {
-  console.log('the data table', data)
   return (
     <table className="table">
-      <caption className="caption">Planets listed in ascending alphabetical Order. "?" indicates unknown.</caption>
+      <caption className="caption">Planets listed in ascending alphabetical order. "?" indicates unknown.</caption>
       <thead>
         <tr>
-          <th className="header" scope="col">Name</th>
-          <th className="header" scope="col">Climate</th>
-          <th className="header" scope="col">Resident Count</th>
-          <th className="header" scope="col">Terrains</th>
-          <th className="header" scope="col">Population</th>
-          <th className="header" scope="col">Surface Area Covered By Water (in km^2)</th>
+          {PLANET_TABLE_HEADERS.map(({ id, label }) => <th className="header" key={`${id}`} scope="col">{label}</th>)}
         </tr>
       </thead>
       <tbody>
-        {data?.map((planet) => <TableRow planet={planet} />)}
+        {data.length > 0 && data.map((planet) => <TableRow key={`${planet.url}`} planet={planet} />)}
+        {data.length === 0 && (
+          <tr>
+            <td className="noResultsMessage" colspan="6">No results found.</td>
+          </tr>)}
       </tbody>
     </table>
-)}
+)};
 
 export default Table;
